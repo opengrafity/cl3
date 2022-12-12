@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>dev.grafity</groupId>
-  <artifactId>race</artifactId>
+  <artifactId>oops</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
   <name>race</name>
