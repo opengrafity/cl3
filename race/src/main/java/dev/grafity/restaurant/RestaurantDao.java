@@ -3,7 +3,6 @@ package dev.grafity.restaurant;
 public class RestaurantDao {
 	private Restaurant restaurant = new Restaurant();
 	private Dish[] dishes = null;
-	private Order[] orders = new Order[100];
 	
 	public RestaurantDao(){
 		Dish dish1= new Dish("Roti",15,"Indian","Main");
@@ -34,6 +33,26 @@ public class RestaurantDao {
 		return null;
 	}
 
+	public Order[] getAllOrdersOfDish(String dishName) {
+		Order[] orders = new Order[100];
+		int i=0;
+		boolean flag = false;
+		for(Branch branch : this.restaurant.getBranches()) {
+			for(Order order:branch.getOrders()) {
+				for(Dish dish:order.getDishes()) {
+					if(dish.getName().equalsIgnoreCase(dishName)) {
+						flag = true;
+					}
+				}				
+				if(flag) {
+					orders[i++] = order;
+					flag = false;
+				}
+			}			
+		}
+		return orders;
+	}
+	
 	public Restaurant getRestaurant() {
 		return restaurant;
 	}

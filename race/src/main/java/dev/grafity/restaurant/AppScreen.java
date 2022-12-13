@@ -10,7 +10,7 @@ public class AppScreen {
 		RestaurantService service = new RestaurantService();
 		Scanner sc = new Scanner(System.in);
 		OUT:do {
-			System.out.println("Enter your choice \n1)Create Order \n2)Find all orders of a branch \n9)Exit");
+			System.out.println("Enter your choice \n1)Create Order \n2)Find all orders of a branch \n3)Find all orders of a dish \n9)Exit");
 			choice = Integer.parseInt(sc.nextLine());
 			dishChoice = -1;
 			switch(choice){
@@ -37,7 +37,7 @@ public class AppScreen {
 			case 2:
 				System.out.println("Enter the branch");
 				branchName = sc.nextLine();
-				Order[] ords = service.getAllOrders(branchName);
+				Order[] ords = service.getAllOrdersOfBranch(branchName);
 				for(int i=0;i<ords.length;i++) {
 					if(ords[i]!=null) {
 						System.out.println(ords[i].getOrderNo() + "<--->");

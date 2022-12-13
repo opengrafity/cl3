@@ -17,7 +17,7 @@ public class RestaurantService {
 		return dao.getAllDishes();
 	}
 	
-	public Order[] getAllOrders(String branchName) {
+	public Order[] getAllOrdersOfBranch(String branchName) {
 		return dao.getAllOrdersOfBranch(branchName);
 	}
 }
