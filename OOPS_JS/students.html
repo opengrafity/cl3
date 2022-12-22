@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <script>
+        var studentNames = ['Ravi','Ramu'];
+        var fatherNames = ['Krishna','Siva'];
+        var medium = ['TM','EM'];        
+        var marks = [[98,95,65,48,75,100],[100,95,85,68,85,90]];
+        function Student(studentName,fatherName,medium,marks){
+            this.studentName = studentName;
+            this.fatherName = fatherName;
+            this.medium = medium;
+            this.marks = marks; 
+        }
+        var students = [
+            new Student("Ravi","Krishna","TM",[98,95,65,48,75,100]),
+            new Student("Ramu","Siva","EM",[100,95,85,68,85,90])            
+        ];
+
+
+        for(var i in students){
+            if(students[i].studentName=="Ramu"){
+               console.log(students[i]);
+            }
+        }
+
+        var foundAt = -1;    
+        for(var i in studentNames){
+            if(studentNames[i]=="Ramu"){
+                foundAt = i;
+                break;
+            }
+        }
+
+        console.log("Father Name Is:",fatherNames[foundAt] );
+
+
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

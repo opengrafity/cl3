@@ -1,16 +1,36 @@
-package dev.grafity.restaurant;
+package dev.grafity.restaurant.dao;
 
-public class RestaurantDao {
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import dev.grafity.restaurant.model.Branch;
+import dev.grafity.restaurant.model.Dish;
+import dev.grafity.restaurant.model.Order;
+import dev.grafity.restaurant.model.Restaurant;
+
+public class RestaurantFileDao implements RestuarantDaoInf{
 	private Restaurant restaurant = new Restaurant();
 	private Dish[] dishes = null;
 	
-	public RestaurantDao(){
-		Dish dish1= new Dish("Roti",15,"Indian","Main");
-		Dish dish2 = new Dish("Noodles",150,"Chainese","Main");
-		Dish dish3 = new Dish("Palak Panneer",250,"Indian","Curry");
-		Dish dish4 = new Dish("Chick Tikka Masala",280,"Indian","Curry");
-		Dish dish5 = new Dish("Rice",180,"Indian","Main");
-		dishes = new Dish[] {dish1,dish2, dish3, dish4, dish5};
+	public RestaurantFileDao(){
+		BufferedReader fileReader = null;
+		
+		try{
+			String line = null;
+			fileReader = new BufferedReader(new FileReader(new File("C:/Vamsi/temp/dishes.txt")));
+			List<Dish> dishes = new ArrayList<>();
+			while((line=fileReader.readLine())!=null) {
+				String[] dishProps = line.split(","); 
+				dishes.add(new Dish(dishProps[0],Double.parseDouble(dishProps[1]),dishProps[2],dishProps[3]));
+			}
+			this.dishes = dishes.toArray(new Dish[0]);
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		
 	
 		Branch branchOne = new Branch();
 		branchOne.setBranchName("Naidupet");

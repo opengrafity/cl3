@@ -1,5 +1,10 @@
 package dev.grafity.restaurant;
 
+import dev.grafity.restaurant.model.Branch;
+import dev.grafity.restaurant.model.Dish;
+import dev.grafity.restaurant.model.Order;
+import dev.grafity.restaurant.model.Restaurant;
+
 public class Test {
 	public static void main(String[] args) {
 		Dish dish1= new Dish("Roti",15,"Indian","Main");

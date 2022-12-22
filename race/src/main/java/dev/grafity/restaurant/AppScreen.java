@@ -3,6 +3,10 @@ package dev.grafity.restaurant;
 import java.util.Scanner;
 import java.util.UUID;
 
+import dev.grafity.restaurant.model.Dish;
+import dev.grafity.restaurant.model.Order;
+import dev.grafity.restaurant.service.RestaurantService;
+
 public class AppScreen {
 	public static void main(String[] args) {
 		int choice = 0;

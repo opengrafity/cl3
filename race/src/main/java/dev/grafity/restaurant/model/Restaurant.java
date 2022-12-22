@@ -1,4 +1,4 @@
-package dev.grafity.restaurant;
+package dev.grafity.restaurant.model;
 
 import java.util.Arrays;
 

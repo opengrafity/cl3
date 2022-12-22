@@ -1,4 +1,4 @@
-package dev.grafity.restaurant;
+package dev.grafity.restaurant.model;
 
 public class Dish {
 	private String name;

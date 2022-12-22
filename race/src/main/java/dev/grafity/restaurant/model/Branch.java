@@ -1,10 +1,12 @@
-package dev.grafity.restaurant;
+package dev.grafity.restaurant.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 public class Branch {
 	private String branchName;
-	private Order[] orders = new Order[1000];
+	private LinkedList<Order> orders = new LinkedList<>();
 	private int noOfOrders = 0;
 	public String getBranchName() {
 		return branchName;
@@ -12,15 +14,15 @@ public class Branch {
 	public void setBranchName(String branchName) {
 		this.branchName = branchName;
 	}
-	public Order[] getOrders() {
+	public LinkedList<Order> getOrders() {
 		return orders;
 	}
 	public void addOrder(Order ord) {
-		this.orders[noOfOrders++] = ord;
+		this.orders.add(ord);
 	}
 	@Override
 	public String toString() {
-		return "Branch [branchName=" + branchName + ", orders=" + Arrays.toString(orders) + ", noOfOrders=" + noOfOrders
+		return "Branch [branchName=" + branchName + ", orders=" + orders + ", noOfOrders=" + noOfOrders
 				+ "]";
 	}	
 }
