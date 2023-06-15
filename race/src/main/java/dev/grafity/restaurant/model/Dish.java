@@ -1,6 +1,6 @@
 package dev.grafity.restaurant.model;
 
-public class Dish {
+public class Dish implements Comparable<Dish>{
 	private String name;
 	private double price;
 	private String cuisineName;
@@ -47,4 +47,10 @@ public class Dish {
 	public String toString() {
 		return "Dish [name=" + name + ", price=" + price + ", cuisineName=" + cuisineName + ", type=" + type + "]";
 	}
+
+	@Override
+	public int compareTo(Dish o) {
+		return 0;
+	}
+	
 }
