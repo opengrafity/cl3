@@ -1,26 +1,29 @@
 package dev.grafity.charstreams;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class FileReaderDemo {
     public static void main(String[] args) throws IOException{
-        File dishesFile = new File("C:/Vamsi/temp/dishes.txt");
+        File inputFile = new File("C:/Vamsi/temp/content.txt");
+        File outputFile = new File("C:/Vamsi/temp/content2.txt");
         System.out.println("******");
+        FileWriter writer = null;
         try {
-            FileReader reader = new FileReader(dishesFile);
-            System.out.println("******");
-            StringBuilder sb = new StringBuilder();
-            int chInt = reader.read();
+            FileReader reader = new FileReader(inputFile, StandardCharsets.UTF_8);
+            BufferedReader breader = new BufferedReader(reader);
+            
+            writer = new FileWriter(outputFile,StandardCharsets.UTF_8);
+            int chInt = breader.read();
             while (chInt != -1) {
-                sb.append((char) chInt);
+                writer.write(chInt);
                 chInt = reader.read();
             }
-            System.out.println(sb);
+
         }catch(FileNotFoundException fe){
-            System.out.println("Specified file does not exists");
+            fe.printStackTrace();
+        }finally {
+            writer.close();
         }
     }
 }
