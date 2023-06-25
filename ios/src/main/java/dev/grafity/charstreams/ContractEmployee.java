@@ -8,24 +8,25 @@ import java.util.Base64;
 import java.util.Date;
 
 public class ContractEmployee extends Employee implements Serializable {
-    private Date contractEndDate;
+    private static final long serialVersionUID = 3;
+    private Date ced;
     transient private String contractor;
 
     public ContractEmployee(Date contractEndDate) {
-        this.contractEndDate = contractEndDate;
+        this.ced = contractEndDate;
     }
 
-    public ContractEmployee(int empNo, String empName, Double empSalary, Date contractEndDate) {
+    public ContractEmployee(int empNo, String empName, Double empSalary, Date ced) {
         super(empNo, empName, empSalary);
-        this.contractEndDate = contractEndDate;
+        this.ced = ced;
     }
 
-    public Date getContractEndDate() {
-        return contractEndDate;
+    public Date getCed() {
+        return ced;
     }
 
-    public void setContractEndDate(Date contractEndDate) {
-        this.contractEndDate = contractEndDate;
+    public void setCed(Date ced) {
+        this.ced = ced;
     }
 
     public String getContractor() {
@@ -38,7 +39,7 @@ public class ContractEmployee extends Employee implements Serializable {
 
     public ContractEmployee(int empNo, String empName, Double empSalary, Date contractEndDate, String contractor) {
         super(empNo, empName, empSalary);
-        this.contractEndDate = contractEndDate;
+        this.ced = contractEndDate;
         this.contractor = contractor;
     }
 
@@ -65,7 +66,7 @@ public class ContractEmployee extends Employee implements Serializable {
     @Override
     public String toString() {
         return "ContractEmployee{" +
-                "contractEndDate=" + contractEndDate +
+                "contractEndDate=" + ced +
                 ", contractor='" + contractor + '\'' +
                 "} " + super.toString();
     }
