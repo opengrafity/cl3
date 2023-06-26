@@ -1,3 +1,5 @@
+import dev.grafity.model.Employee;
+
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
