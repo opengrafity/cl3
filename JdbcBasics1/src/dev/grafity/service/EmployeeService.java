@@ -20,4 +20,11 @@ public class EmployeeService {
     public List<Employee> fetchAllEmployee() throws SQLException {
         return empRepo.fetchAllEmployee();
     }
+
+    public int getEmployeesCount() throws SQLException {
+        return empRepo.getEmployeesCount();
+    }
+    public void bulkStoreEmployees(List<Employee> emps) throws SQLException {
+        empRepo.storeEmployeeUsingPS(emps);
+    }
 }
